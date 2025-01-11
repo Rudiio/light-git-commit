@@ -14,8 +14,16 @@
   "contributes": {
     "commands": [
       {
-        "command": "light-git-commits.helloWorld",
-        "title": "Hello World"
+        "command": "light-git-commits.createCommit",
+        "title": "Light commit: 🚀 Create a new light conventional commit."
+      },
+      {
+        "command": "light-git-commits.addTemplate",
+        "title": "Light commit: 📦 Add a new light commit template."
+      },
+      {
+        "command": "light-git-commits.deleteTemplate",
+        "title": "Light commit: 🧹 Delete an existing commit template."
       }
     ]
   },
@@ -33,6 +41,7 @@
     "lint": "eslint src",
     "test": "vscode-test"
   },
+  "extensionDependencies": ["vscode.git"],
   "devDependencies": {
     "@types/vscode": "^1.96.0",
     "@types/mocha": "^10.0.10",
