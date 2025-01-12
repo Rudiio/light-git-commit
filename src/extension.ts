@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { createCommit } from "./lib/commands";
+import { createCommit, addTemplate } from "./lib/commands";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -17,11 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   const commandAdd = vscode.commands.registerCommand(
     "light-git-commits.addTemplate",
-    () => {
-      vscode.window.showInformationMessage(
-        "Light commit: 📦 Add a new light commit template"
-      );
-    }
+    addTemplate
   );
 
   const commandDelete = vscode.commands.registerCommand(

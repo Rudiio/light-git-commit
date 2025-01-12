@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
-import { GitExtension } from "./git";
-import { lightCommitConfig } from "./types";
+import { GitExtension, Repository } from "./git";
+import { lightCommitTemplate } from "./types";
 
 export function getGitExtension() {
   const gitVscode = vscode.extensions.getExtension<GitExtension>("vscode.git");
@@ -8,6 +8,10 @@ export function getGitExtension() {
   return gitExtension && gitExtension.getAPI(1);
 }
 
-export function convert2Quickpick(commitConfig: lightCommitConfig) {
-  return `${commitConfig.type}: ${commitConfig.emoji}`;
+export function convert2Quickpick(commitTemplate: lightCommitTemplate) {
+  return `${commitTemplate.type}: ${commitTemplate.emoji}`;
+}
+
+export function injectTemplate(commitTemplate: string, gitRepo: Repository) {
+  gitRepo.inputBox.value = `${commitTemplate}: ${gitRepo.inputBox.value}`;
 }

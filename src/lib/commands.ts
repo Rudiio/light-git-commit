@@ -1,7 +1,9 @@
 import * as vscode from "vscode";
-import { getGitExtension, convert2Quickpick } from "./utils";
-import { defaultCommits } from "./defaults";
+import { getGitExtension, convert2Quickpick, injectTemplate } from "./utils";
+
 import { uri } from "./git";
+import { lightCommitTemplate } from "./types";
+
 export async function createCommit(uri: uri) {
   // Load required git extension
   const git = getGitExtension();
@@ -10,12 +12,12 @@ export async function createCommit(uri: uri) {
     vscode.window.showErrorMessage("❌ Failed to load git extension.");
     return;
   }
-  vscode.window.showInformationMessage("💪 Git extension loaded successfully");
-  if (uri) {
-    vscode.window.showInformationMessage(`git uir ${uri}`);
-  } else {
-    vscode.window.showInformationMessage(`Nope`);
-  }
+
+  // Load templates from configuration
+  let extensionSettings = vscode.workspace.getConfiguration("light-git-commit");
+  let defaultCommits: Array<lightCommitTemplate> =
+    extensionSettings?.commitTemplates;
+
   // handle quick pick logic
   let items = [];
   for (let i = 0; i < defaultCommits.length; i++) {
@@ -30,5 +32,29 @@ export async function createCommit(uri: uri) {
   });
 
   // Insert the text in source control input box
-  vscode.window.showInformationMessage(`${pick?.label}`);
+  if (uri) {
+    if (uri) {
+      let selectedRepository = git.repositories.find((repository) => {
+        return (
+          repository.rootUri.path === uri._rootUri?.path || uri.rootUri.path
+        );
+      });
+      if (selectedRepository) {
+        injectTemplate(pick?.label, selectedRepository);
+      }
+    }
+  } else {
+    for (let gitRepo of git.repositories) {
+      injectTemplate(pick?.label, gitRepo);
+    }
+  }
+}
+
+export async function addTemplate(uri: uri) {
+  // Load templates from configuration
+  let extensionSettings = vscode.workspace.getConfiguration("light-git-commit");
+  let defaultCommits: Array<lightCommitTemplate> =
+    extensionSettings?.commitTemplates;
+
+  defaultCommits.push({ type: "jesuis", emoji: "🌏", description:✨ "gneu" });
 }

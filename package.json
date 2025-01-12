@@ -25,7 +25,73 @@
         "command": "light-git-commits.deleteTemplate",
         "title": "Light commit: 🧹 Delete an existing commit template."
       }
-    ]
+    ],
+    "configuration": {
+    "title": "light.commit.templates",
+    "properties": {
+        "light-git-commit.commitTemplates": {
+            "type": "array",
+            "default": [
+              {
+                "type": "fix",
+                "emoji": "🐛",
+                "description": "A commit that fixes a bug in your codebase"
+              },
+              {
+                "type": "feat",
+                "emoji": "✨",
+                "description": "A commit that implements a new feature"
+              },
+              {
+                "type": "docs",
+                "emoji": "📖",
+                "description": "A commit that adds documentation"
+              },
+              {
+                "type": "style",
+                "emoji": "💅",
+                "description": "A commit that only affects code style (white-space, formatting, missing semi-colons, etc)"
+              },
+              {
+                "type": "refactor",
+                "emoji": "📦",
+                "description": "A commit that modify the code but not the action"
+              },
+              {
+                "type": "perf",
+                "emoji": "🚀",
+                "description": "A commit that enhances the performance of the software"
+              },
+              {
+                "type": "test",
+                "emoji": "🧪",
+                "description": "A commit that modifies or adds tests to the codebase"
+              },
+              {
+                "type": "build",
+                "emoji": "🛠️",
+                "description": "A commit that touches the build system"
+              },
+              {
+                "type": "ci",
+                "emoji": "⚙️",
+                "description": "A commit that affects CI files"
+              },
+              {
+                "type": "chore",
+                "emoji": "♻️",
+                "description": "A commit that does not affects pure source code files"
+              },
+              {
+                "type": "revert",
+                "emoji": "🗑",
+                "description": "Reverts a previous commit"
+              }
+            ],
+            "description": "Different conventional light commits templates."
+        }
+    }
+}
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
