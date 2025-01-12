@@ -15,3 +15,14 @@ export function convert2Quickpick(commitTemplate: lightCommitTemplate) {
 export function injectTemplate(commitTemplate: string, gitRepo: Repository) {
   gitRepo.inputBox.value = `${commitTemplate}: ${gitRepo.inputBox.value}`;
 }
+
+export async function handleInputBox(placeHolder: string) {
+  const result = await vscode.window.showInputBox({
+    value: "",
+    placeHolder: placeHolder,
+    validateInput: (text) => {
+      return typeof text !== "string" ? "Input is not a string" : null;
+    },
+  });
+  return result;
+}
