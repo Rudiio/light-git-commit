@@ -25,6 +25,6 @@ The extension allows 3 commands:
 The extension introduce a **simple** completion system into the source control input box.
 To trigger it, just type `/`, it will show the defined templates.
 
-## Licence
+## License
 
-MIT Licence.
+MIT License.
