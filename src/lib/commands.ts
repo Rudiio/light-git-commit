@@ -17,6 +17,9 @@ export async function createCommit(uri: vscode.Uri) {
     return;
   }
 
+  // TODO: understand this command
+  vscode.commands.executeCommand("workbench.view.scm");
+
   // Load templates from configuration
   let extensionSettings = vscode.workspace.getConfiguration("light-git-commit");
   let commitTemplates: Array<lightCommitTemplate> =
@@ -39,17 +42,17 @@ export async function createCommit(uri: vscode.Uri) {
   if (uri) {
     if (uri) {
       let selectedRepository = git.repositories.find((repository) => {
-        return (
-          repository.rootUri.path === uri._rootUri?.path || uri.rootUri.path
-        );
+        return repository.rootUri.path === uri.path || uri.path;
       });
-      if (selectedRepository) {
+      if (selectedRepository && pick) {
         injectTemplate(pick?.label, selectedRepository);
       }
     }
   } else {
-    for (let gitRepo of git.repositories) {
-      injectTemplate(pick?.label, gitRepo);
+    if (pick) {
+      for (let gitRepo of git.repositories) {
+        injectTemplate(pick?.label, gitRepo);
+      }
     }
   }
 }

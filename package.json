@@ -9,11 +9,14 @@
   "categories": [
     "Other"
   ],
+  "publisher": "Rudiio",
+  "author": {"name": "FIDA CYRILLE Rudio Maharavo","email": "fidacyrillerudio@gmail.com"},
   "license":"MIT",
   "repository": {
 		"type": "git",
 		"url": "https://github.com/Rudiio/light-git-commit"
 	},
+  "icon": "assets/logo.png",
   "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
