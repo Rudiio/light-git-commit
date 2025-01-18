@@ -8,8 +8,14 @@ export function getGitExtension() {
   return gitExtension && gitExtension.getAPI(1);
 }
 
-export function convert2Quickpick(commitTemplate: lightCommitTemplate) {
-  return `${commitTemplate.type}: ${commitTemplate.emoji} `;
+export function convert2Quickpick(
+  commitTemplate: lightCommitTemplate,
+  showEmoji: boolean
+) {
+  if (showEmoji) {
+    return `${commitTemplate.type}: ${commitTemplate.emoji} `;
+  }
+  return `${commitTemplate.type}: `;
 }
 
 export function injectTemplate(commitTemplate: string, gitRepo: Repository) {

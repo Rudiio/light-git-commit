@@ -24,12 +24,13 @@ export async function createCommit(uri: vscode.Uri) {
   let extensionSettings = vscode.workspace.getConfiguration("light-git-commit");
   let commitTemplates: Array<lightCommitTemplate> =
     extensionSettings?.commitTemplates;
+  let showEmoji = extensionSettings?.showEmoji;
 
   // handle quick pick logic
   let items = [];
   for (let i = 0; i < commitTemplates.length; i++) {
     items.push({
-      label: convert2Quickpick(commitTemplates[i]),
+      label: convert2Quickpick(commitTemplates[i], showEmoji),
       description: commitTemplates[i].description,
     });
   }
@@ -146,12 +147,13 @@ export async function deleteTemplate() {
   let extensionSettings = vscode.workspace.getConfiguration("light-git-commit");
   let commitTemplates: Array<lightCommitTemplate> =
     extensionSettings?.commitTemplates;
+  let showEmoji = extensionSettings?.showEmoji;
 
   // handle quick pick logic
   let items = [];
   for (let i = 0; i < commitTemplates.length; i++) {
     items.push({
-      label: convert2Quickpick(commitTemplates[i]),
+      label: convert2Quickpick(commitTemplates[i], showEmoji),
       description: commitTemplates[i].description,
     });
   }

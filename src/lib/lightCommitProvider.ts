@@ -31,12 +31,13 @@ export class LightCommitProvider implements vscode.CompletionItemProvider {
       vscode.workspace.getConfiguration("light-git-commit");
     let commitTemplates: Array<lightCommitTemplate> =
       extensionSettings?.commitTemplates;
+    let showEmoji = extensionSettings?.showEmoji;
 
     // add the completion items
     for (let commitTemplate of commitTemplates) {
       list.items.push({
-        label: convert2Quickpick(commitTemplate),
-        insertText: convert2Quickpick(commitTemplate),
+        label: convert2Quickpick(commitTemplate, showEmoji),
+        insertText: convert2Quickpick(commitTemplate, showEmoji),
         detail: commitTemplate.description,
         kind: vscode.CompletionItemKind.Event,
         additionalTextEdits: [vscode.TextEdit.delete(range)], // Delete the trigger character

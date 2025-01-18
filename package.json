@@ -35,8 +35,9 @@
       }
     ],
     "configuration": {
-    "title": "light.commit.templates",
+    "title": "LightGitCommits",
     "properties": {
+        "light-git-commit.showEmoji":{"type":"boolean","default":true},      
         "light-git-commit.commitTemplates": {
             "type": "array",
             "default": [
