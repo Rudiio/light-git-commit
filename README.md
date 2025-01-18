@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/logo.png" height="180" wigth="180"  alt="log" align="center">
+<img src="./assets/logo.png" alt="log" align="center">
 
 # Light Git Commits
 
@@ -50,7 +50,7 @@ The settings are accessible in Vscode's `settings.json`. Vscode provide an UI on
 
 ### Manually add or delete a new template
 
-> **WARNING:\_** Only if you want to edit the settings manually in `settings.json`.
+> **_WARNING_:** Only if you want to edit the settings manually in `settings.json`.
 
 - You can directly create or delete a new template in the setting : `commitTemplates`.
   The format respect json formatting:
