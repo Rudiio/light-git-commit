@@ -1,8 +1,12 @@
 # Change Log
 
+## [0.1.5] 18/01/2025
+
+- Adding back removed whitespace.
+
 ## [0.1.4] 18/01/2025
 
-- Removed trailing space.
+- Removed trailing whitespace.
 
 ## [0.1.3] 18/01/2025
 
