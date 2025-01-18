@@ -23,7 +23,7 @@
     "commands": [
       {
         "command": "light-git-commits.createCommit",
-        "title": "Light commit: 🚀 Create a new light conventional commit."
+        "title": "Light commit: 🚀 Create a new light (conventional) commit."
       },
       {
         "command": "light-git-commits.addTemplate",
