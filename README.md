@@ -16,14 +16,6 @@ Create light git (conventional) emoji commits with **light-git-commits**. This e
 
 ## Usage
 
-### Commands
-
-The extension allows 3 commands:
-
-- `Light commit: 🚀 Create a new light (conventional) commit.` to select a template and inject it directy in your **source control inputbox**.
-- `Light commit: 📦 Add a new light commit template.` to modify an existing template or create a whole new one.
-- `Light commit: 🧹 Delete an existing commit template.` to delete an existing template.
-
 ### Source control input completion
 
 The extension introduce a **simple** completion system into to inject **intuitively** your commit messages.
@@ -32,6 +24,14 @@ To trigger it, just type `/`, it will show the defined templates.
 ![completion](./assets/completion.png)
 
 > **_NOTE:_** This Completion is limited to the Source Control input box.
+
+### Commands
+
+The extension allows 3 commands:
+
+- `Light commit: 🚀 Create a new light (conventional) commit.` to select a template and inject it directy in your **source control inputbox**.
+- `Light commit: 📦 Add a new light commit template.` to modify an existing template or create a whole new one.
+- `Light commit: 🧹 Delete an existing commit template.` to delete an existing template.
 
 ### Automatic label discovery
 
@@ -43,6 +43,8 @@ Example:
 - pattern : `branch-[0-9]+`
 - extracted label: `branch-28`
 - injected commit message (for a fix commit): `fix: 🐛 (branch-28)`
+
+> **_NOTE_:** Deactivated by default.
 
 ## Configuration
 
@@ -67,7 +69,7 @@ The settings are accessible in Vscode's `settings.json`. Vscode provide an UI on
 }
 ```
 
-- You can also show or hide the emojis in the commits.
+- You can also show or hide the emojis in the commits. It is activated by default.
 
 ```json
 {
