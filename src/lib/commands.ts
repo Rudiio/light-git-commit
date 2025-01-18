@@ -105,8 +105,14 @@ export async function addTemplate() {
           } else {
             commitTemplates.push(newTemplate);
           }
+          // Update the configuration in the global scope (settings.json)
+          extensionSettings.update(
+            "light-git-commit.commitTemplates",
+            commitTemplates,
+            vscode.ConfigurationTarget.Global
+          );
           vscode.window.showInformationMessage(
-            "🎉 New light commit message created successfully !"
+            "🎉 New light commit template created successfully !"
           );
           return;
         } catch (error) {
