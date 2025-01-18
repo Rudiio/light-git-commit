@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.1.1] 18/01/2025
+
+- Fixed Documentation align
+
 ## [0.1.0] 18/01/2025
 
 - First stable realease. All features were tested in real situations and adjusted.
