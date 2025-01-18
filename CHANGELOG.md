@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.3] 18/01/2025
+
+- Removed unsupported emojis.
+
+## [0.1.2] 18/01/2025
+
+- Fixed a typo
+
 ## [0.1.1] 18/01/2025
 
 - Fixed Documentation align
