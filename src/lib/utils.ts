@@ -9,7 +9,7 @@ export function getGitExtension() {
 }
 
 export function convert2Quickpick(commitTemplate: lightCommitTemplate) {
-  return `${commitTemplate.type}: ${commitTemplate.emoji}`;
+  return `${commitTemplate.type}: ${commitTemplate.emoji} `;
 }
 
 export function injectTemplate(commitTemplate: string, gitRepo: Repository) {
