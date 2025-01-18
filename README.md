@@ -33,14 +33,27 @@ To trigger it, just type `/`, it will show the defined templates.
 
 > **_NOTE:_** This Completion is limited to the Source Control input box.
 
+### Automatic label discovery
+
+You can activate the `labelDiscovery` feature that allows to setup a specific Regexp pattern that will be used to match a `label` directly in your current git branch name. It can be particularly interesting in case you need to track your commits with a ticketing system.
+
+Example:
+
+- branch name: ̀`branch-28-test`
+- pattern : `branch-[0-9]+`
+- extracted label: `branch-28`
+- injected commit message (for a fix commit): `fix: 🐛 (branch-28)`
+
 ## Configuration
 
-The settings are accessible in Vscode's `settings.json`.
+The settings are accessible in Vscode's `settings.json`. Vscode provide an UI on top of that file to simply the editting of these settings.
 
 ### Manually add or delete a new template
 
-You can directly create or delete a new template in the setting : `commitTemplates`.
-The format respect json formatting:
+> **WARNING:\_** Only if you want to edit the settings manually in `settings.json`.
+
+- You can directly create or delete a new template in the setting : `commitTemplates`.
+  The format respect json formatting:
 
 ```json
 {
@@ -54,11 +67,27 @@ The format respect json formatting:
 }
 ```
 
-You can also show or hide the emojis in the commits.
+- You can also show or hide the emojis in the commits.
 
 ```json
 {
   "light-git-commit.showEmoji": true // or false
+}
+```
+
+- You can activate or deactivate the label discovery. It is activated by default.
+
+```json
+{
+  "light-git-commit.activateLabelDiscovery": true // or false
+}
+```
+
+- You can write your label pattern.
+
+```json
+{
+  "light-git-commit.labelPattern": "branch-[0-9]+"
 }
 ```
 
