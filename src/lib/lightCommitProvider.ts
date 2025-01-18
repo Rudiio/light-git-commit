@@ -37,7 +37,8 @@ export class LightCommitProvider implements vscode.CompletionItemProvider {
       list.items.push({
         label: convert2Quickpick(commitTemplate),
         insertText: convert2Quickpick(commitTemplate),
-        kind: vscode.CompletionItemKind.Value,
+        detail: commitTemplate.description,
+        kind: vscode.CompletionItemKind.Event,
         additionalTextEdits: [vscode.TextEdit.delete(range)], // Delete the trigger character
       });
     }
