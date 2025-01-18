@@ -174,6 +174,13 @@ export async function deleteTemplate() {
     return;
   }
   commitTemplates.splice(index, 1);
+
+  // Update the configuration in the global scope (settings.json)
+  extensionSettings.update(
+    "light-git-commit.commitTemplates",
+    commitTemplates,
+    vscode.ConfigurationTarget.Global
+  );
   vscode.window.showInformationMessage(
     `Successfully deleted the template: \`${pick.label}\``
   );

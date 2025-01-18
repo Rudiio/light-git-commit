@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   const languageProvider = vscode.languages.registerCompletionItemProvider(
-    "*", // All document types
+    "scminput", // Only for the Source Control Input box
     new LightCommitProvider(),
     "/" // The trigger character
   );
