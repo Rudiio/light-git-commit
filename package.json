@@ -1,8 +1,8 @@
 {
   "name": "light-git-commits",
   "displayName": "Light git commits",
-  "description": "🪶 Lightweight conventional commit for lazy perfectionists ",
-  "version": "0.0.2",
+  "description": "🪶 Lightweight and extensible conventional commits for lazy perfectionnist. 🥱",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -99,7 +99,7 @@
             ],
             "description": "Different conventional light commits templates."
         },
-        "light-git-commit.activateLabelDiscovery":{"type":"boolean","default":true,"description": "Toogles the custom label discovery on your branch name based on the label pattern."},
+        "light-git-commit.activateLabelDiscovery":{"type":"boolean","default":false,"description": "Toogles the custom label discovery on your branch name based on the label pattern."},
         "light-git-commit.labelPattern":{"type":"string","default":"branch-[0-9]+","description": "Regexp pattern to extract your label from branch name."}      
     }
 }

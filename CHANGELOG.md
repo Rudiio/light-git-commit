@@ -1,9 +1,20 @@
 # Change Log
 
-All notable changes to the "light-git-commits" extension will be documented in this file.
+## [0.1.0] 18/01/2025
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- First stable realease. All features were tested in real situations and adjusted.
+- Few typos has been fixed in the `commitCreation` and `completion`.
+- New features:
+  - Added the option to disable emojis in the commits.
+  - Added the `labelDiscovery` feature on PR branches.
+- Updated documentation and logo.
 
-## [Unreleased]
+## [0.0.2] 13/01/2025
 
-- Initial release
+- Fix quick typos.
+
+## [0.0.1] 13/01/2025
+
+- Publishing ̀ Light-git-commits` extension to the world.
+- Version was a preview for real-situation test.
+- It includes the base features: commands and completion.
