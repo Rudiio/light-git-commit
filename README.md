@@ -50,7 +50,7 @@ Example:
 
 > **_NOTE_:** Deactivated by default.
 
-## Configuration
+## Configurations
 
 The settings are accessible in Vscode's `settings.json`. Vscode provide an UI on top of that file to simply the editting of these settings.
 
