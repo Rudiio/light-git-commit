@@ -10,9 +10,13 @@
 
 Create light git (conventional) emoji commits with **light-git-commits**. This extension allows you to create, delete, modify or inject lightweight conventional commits. This extension keeps committing **quick**, **light** and **conform**.
 
+<div align="center">
+
 ![Made with love in Paris](https://madewithlove.now.sh/in?heart=true&&text=Paris)
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/Rudiio.light-git-commits?color=blue)
 [![Static Badge](https://img.shields.io/badge/convetional_commits-🪶_🥱-pink)](https://www.conventionalcommits.org/en/v1.0.0/)
+
+</div>
 
 ## Usage
 
