@@ -40,7 +40,7 @@ export function convert2Quickpick(
   let commitMessage = `${commitTemplate.type}:`;
 
   if (showEmoji) {
-    commitMessage = commitMessage + `${commitTemplate.emoji} `;
+    commitMessage = commitMessage + ` ${commitTemplate.emoji} `;
     return commitMessage;
   }
   return commitMessage + " ";
