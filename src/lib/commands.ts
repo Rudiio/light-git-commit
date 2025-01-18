@@ -4,6 +4,7 @@ import {
   convert2Quickpick,
   injectTemplate,
   handleInputBox,
+  addLabel,
 } from "./utils";
 
 import { lightCommitTemplate } from "./types";
@@ -17,6 +18,26 @@ export async function createCommit(uri: vscode.Uri) {
     return;
   }
 
+  // Try to load a the current repo
+  const activeEditorUri = vscode.window.activeTextEditor?.document.uri;
+  if (!activeEditorUri) {
+    vscode.window.showErrorMessage("Please, open a workspace.");
+    return;
+  }
+  const wsFolderUri = vscode.workspace.getWorkspaceFolder(activeEditorUri)?.uri;
+  if (!wsFolderUri) {
+    vscode.window.showErrorMessage("Please, open a workspace.");
+    return;
+  }
+  const repo = git.getRepository(wsFolderUri);
+
+  if (!repo) {
+    vscode.window.showErrorMessage(
+      "Your current workspace is not a git repository."
+    );
+    return;
+  }
+
   // TODO: understand this command
   vscode.commands.executeCommand("workbench.view.scm");
 
@@ -25,6 +46,8 @@ export async function createCommit(uri: vscode.Uri) {
   let commitTemplates: Array<lightCommitTemplate> =
     extensionSettings?.commitTemplates;
   let showEmoji = extensionSettings?.showEmoji;
+  let activateLabelDiscovery = extensionSettings?.activateLabelDiscovery;
+  let labelPattern = extensionSettings?.labelPattern;
 
   // handle quick pick logic
   let items = [];
@@ -39,23 +62,25 @@ export async function createCommit(uri: vscode.Uri) {
     placeHolder: "⛏️ Choose your light commit template!",
   });
 
-  // Insert the text in source control input box
-  if (uri) {
-    if (uri) {
-      let selectedRepository = git.repositories.find((repository) => {
-        return repository.rootUri.path === uri.path || uri.path;
-      });
-      if (selectedRepository && pick) {
-        injectTemplate(pick?.label, selectedRepository);
-      }
-    }
-  } else {
-    if (pick) {
-      for (let gitRepo of git.repositories) {
-        injectTemplate(pick?.label, gitRepo);
-      }
+  if (!pick) {
+    {
+      vscode.window.showErrorMessage("Quick pick bugged!");
+      return;
     }
   }
+
+  // Check additional features
+  let commitMessage = addLabel(
+    pick?.label,
+    activateLabelDiscovery,
+    labelPattern,
+    repo
+  );
+
+  vscode.window.showInformationMessage(commitMessage);
+
+  // Insert the text in source control input box
+  injectTemplate(commitMessage, repo);
 }
 
 export async function addTemplate() {

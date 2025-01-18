@@ -37,7 +37,7 @@
     "configuration": {
     "title": "LightGitCommits",
     "properties": {
-        "light-git-commit.showEmoji":{"type":"boolean","default":true},      
+        "light-git-commit.showEmoji":{"type":"boolean","default":true,"description": "Toogles the injection of emoji in the final commit message."},      
         "light-git-commit.commitTemplates": {
             "type": "array",
             "default": [
@@ -98,7 +98,9 @@
               }
             ],
             "description": "Different conventional light commits templates."
-        }
+        },
+        "light-git-commit.activateLabelDiscovery":{"type":"boolean","default":true,"description": "Toogles the custom label discovery on your branch name based on the label pattern."},
+        "light-git-commit.labelPattern":{"type":"string","default":"RUD-[0-9]+","description": "Regexp pattern to extract your label from branch name."}      
     }
 }
   },
