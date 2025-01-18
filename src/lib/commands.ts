@@ -5,6 +5,7 @@ import {
   injectTemplate,
   handleInputBox,
   addLabel,
+  getGitRepo,
 } from "./utils";
 
 import { lightCommitTemplate } from "./types";
@@ -19,22 +20,9 @@ export async function createCommit(uri: vscode.Uri) {
   }
 
   // Try to load a the current repo
-  const activeEditorUri = vscode.window.activeTextEditor?.document.uri;
-  if (!activeEditorUri) {
-    vscode.window.showErrorMessage("Please, open a workspace.");
-    return;
-  }
-  const wsFolderUri = vscode.workspace.getWorkspaceFolder(activeEditorUri)?.uri;
-  if (!wsFolderUri) {
-    vscode.window.showErrorMessage("Please, open a workspace.");
-    return;
-  }
-  const repo = git.getRepository(wsFolderUri);
+  let repo = getGitRepo(git);
 
   if (!repo) {
-    vscode.window.showErrorMessage(
-      "Your current workspace is not a git repository."
-    );
     return;
   }
 

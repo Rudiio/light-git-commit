@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { GitExtension, Repository } from "./git";
+import { GitExtension, Repository, API } from "./git";
 import { lightCommitTemplate } from "./types";
 import { create } from "domain";
 
@@ -42,7 +42,7 @@ export function convert2Quickpick(
   if (showEmoji) {
     commitMessage = commitMessage + `${commitTemplate.emoji} `;
   }
-  return commitMessage;
+  return commitMessage + " ";
 }
 
 export function addLabel(
@@ -74,4 +74,25 @@ export async function handleInputBox(placeHolder: string) {
     },
   });
   return result;
+}
+
+export function getGitRepo(git: API) {
+  const activeEditorUri = vscode.window.activeTextEditor?.document.uri;
+  if (!activeEditorUri) {
+    vscode.window.showErrorMessage("Please, open a workspace.");
+    return;
+  }
+  const wsFolderUri = vscode.workspace.getWorkspaceFolder(activeEditorUri)?.uri;
+  if (!wsFolderUri) {
+    vscode.window.showErrorMessage("Please, open a workspace.");
+    return;
+  }
+  const repo = git.getRepository(wsFolderUri);
+  if (!repo) {
+    vscode.window.showErrorMessage(
+      "Your current workspace is not a git repo, the extension won't work."
+    );
+    return;
+  }
+  return repo;
 }
