@@ -41,6 +41,7 @@ export function convert2Quickpick(
 
   if (showEmoji) {
     commitMessage = commitMessage + `${commitTemplate.emoji} `;
+    return commitMessage;
   }
   return commitMessage + " ";
 }
