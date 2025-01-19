@@ -65,8 +65,6 @@ export async function createCommit(uri: vscode.Uri) {
     repo
   );
 
-  vscode.window.showInformationMessage(commitMessage);
-
   // Insert the text in source control input box
   injectTemplate(commitMessage, repo);
 }

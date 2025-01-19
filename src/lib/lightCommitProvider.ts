@@ -55,9 +55,11 @@ export class LightCommitProvider implements vscode.CompletionItemProvider {
     let commitMessage = "";
     // add the completion items
     for (let commitTemplate of commitTemplates) {
+      // Constructing the commit to inject
       if (activateLabelDiscovery && repo) {
+        let tempMessage = convert2Quickpick(commitTemplate, showEmoji);
         commitMessage = addLabel(
-          convert2Quickpick(commitTemplate, showEmoji),
+          tempMessage,
           activateLabelDiscovery,
           labelPattern,
           repo
@@ -65,12 +67,13 @@ export class LightCommitProvider implements vscode.CompletionItemProvider {
       } else {
         commitMessage = convert2Quickpick(commitTemplate, showEmoji);
       }
+      // Completion item
       list.items.push({
         label: convert2Quickpick(commitTemplate, showEmoji),
         insertText: commitMessage,
         detail: commitTemplate.description,
         kind: vscode.CompletionItemKind.Event,
-        additionalTextEdits: [vscode.TextEdit.delete(range)], // Delete the trigger character
+        additionalTextEdits: [vscode.TextEdit.delete(range)],
       });
     }
 

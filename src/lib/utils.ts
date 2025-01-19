@@ -25,7 +25,7 @@ export function getLabel(pattern: string, repo: Repository) {
 
   let matches = branchName.match(re);
   if (!matches) {
-    vscode.window.showInformationMessage(
+    console.log(
       "🫠 `Light Git Commit` did not find the label in your branch name. Check your pattern or your branch name."
     );
     return null;
@@ -80,18 +80,22 @@ export async function handleInputBox(placeHolder: string) {
 export function getGitRepo(git: API) {
   const activeEditorUri = vscode.window.activeTextEditor?.document.uri;
   if (!activeEditorUri) {
-    vscode.window.showErrorMessage("Please, open a workspace.");
+    vscode.window.showErrorMessage(
+      "You need to open a file, not a setting page or other."
+    );
     return;
   }
   const wsFolderUri = vscode.workspace.getWorkspaceFolder(activeEditorUri)?.uri;
   if (!wsFolderUri) {
-    vscode.window.showErrorMessage("Please, open a workspace.");
+    vscode.window.showErrorMessage(
+      "You are not in a workspace, please open one."
+    );
     return;
   }
   const repo = git.getRepository(wsFolderUri);
   if (!repo) {
     vscode.window.showErrorMessage(
-      "Your current workspace is not a git repo, the extension won't work."
+      "Your current workspace is not a git repository."
     );
     return;
   }
