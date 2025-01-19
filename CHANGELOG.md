@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.1.7] 19/01/2025
+
+- Completing extension metadata
+- Fixing typos.
+
 ## [0.1.6] 19/01/2025
 
 - Removed debug line.

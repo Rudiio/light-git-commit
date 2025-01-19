@@ -1,14 +1,15 @@
 {
   "name": "light-git-commits",
   "displayName": "Light git commits",
-  "description": "Lightweight and extensible (conventional) commits for lazy perfectionnist.",
-  "version": "0.1.6",
+  "description": "Lightweight and extensible (conventional) commits for lazy perfectionists.",
+  "version": "0.1.7",
   "engines": {
     "vscode": "^1.96.0"
   },
   "categories": [
-    "Other"
+    "SCM Providers","Snippets"
   ],
+  "keywords": ["git","emoji","gitmoji","conventional commits"],
   "publisher": "Rudiio",
   "author": {"name": "FIDA CYRILLE Rudio Maharavo","email": "fidacyrillerudio@gmail.com"},
   "license":"MIT",
