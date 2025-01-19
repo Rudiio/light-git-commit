@@ -1,7 +1,7 @@
 {
   "name": "light-git-commits",
   "displayName": "Light git commits",
-  "description": "Lightweight and extensible conventional commits for lazy perfectionnist.",
+  "description": "Lightweight and extensible (conventional) commits for lazy perfectionnist.",
   "version": "0.1.5",
   "engines": {
     "vscode": "^1.96.0"

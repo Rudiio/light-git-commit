@@ -4,11 +4,11 @@
 
 # Light Git Commits
 
-🪶 Lightweight and extensible conventional commits for lazy perfectionnist. 🥱
+🪶 Lightweight and extensible (conventional) commits for lazy perfectionnist. 🥱
 
 </div>
 
-Create light git (conventional) emoji commits with **light-git-commits**. This extension allows you to create, delete, modify or inject lightweight conventional commits. This extension keeps committing **quick**, **light** and **conform**.
+Create light git (conventional) emoji commits with **light-git-commits**. This extension allows you to create, delete, modify or inject lightweight (conventional) commits. This extension keeps committing **quick**, **light** and **conform**.
 
 <div align="center">
 
@@ -67,7 +67,7 @@ The settings are accessible in Vscode's `settings.json`. Vscode provide an UI on
     {
       "type": "[string] Your (conventional) commit type",
       "emoji": "[string] Your commit emoji",
-      "description": "[string] Your conventional commit description"
+      "description": "[string] Your (conventional) commit description"
     }
   ]
 }
