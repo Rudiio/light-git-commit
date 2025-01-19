@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.1.6] 19/01/2025
+
+- Removed debug line.
+- Changed some error handling.
+- Uniformized documentation.
+
 ## [0.1.5] 18/01/2025
 
 - Adding back removed whitespace.
